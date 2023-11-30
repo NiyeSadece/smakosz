@@ -24,8 +24,6 @@ def profile(request):
     return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
-
-
 class SignUpView(generic.CreateView):
     form_class = RegisterForm
     success_url = reverse_lazy("login")
