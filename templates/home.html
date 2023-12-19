@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  Hi <a href="{% url 'users-profile' %}">{{ user.username }}!</a>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
     <p><a href="{% url 'reservation' %}">Nowa rezerwacja</a></p>
     <h2>Twoje rezerwacje</h2>
     {% if object_list %}
-        {% for resv in object_list %}
+        {% for resv in reservation_list %}
             <p>{{ resv }}</p>
         {% endfor %}
         {% else %}

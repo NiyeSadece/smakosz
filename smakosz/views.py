@@ -47,7 +47,6 @@ class ReservationView(LoginRequiredMixin, FormView):
 
 class HomeView(ListView):
     model = Reservation
-    paginate_by = 10
     template_name = 'home.html'
 
     def get_queryset(self):
