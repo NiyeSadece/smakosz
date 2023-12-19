@@ -1,3 +1,4 @@
+"""There were grant plans. These serializers are proof of both dreams and failure."""
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from smakosz.models import Profile, Reservation, Table
@@ -7,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
+            'id',
             'username',
             'email',
         ]
@@ -19,6 +21,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             'user',
+            'id',
             'first_name',
             'last_name',
             'phone_number',

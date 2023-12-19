@@ -8,6 +8,13 @@
   <p><a href="{% url 'logout' %}">Log Out</a></p>
     <p><a href="{% url 'reservation' %}">Nowa rezerwacja</a></p>
     <h2>Twoje rezerwacje</h2>
+    {% if object_list %}
+        {% for resv in object_list %}
+            <p>{{ resv }}</p>
+        {% endfor %}
+        {% else %}
+        <p>Nie masz jeszcze żadnych rezerwacji.</p>
+        {% endif %}
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a>

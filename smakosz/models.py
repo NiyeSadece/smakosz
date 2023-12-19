@@ -4,6 +4,8 @@ from PIL import Image
 
 
 class Profile(models.Model):
+    """Technically, Profile model should be in accounts to maintain proper separation,
+    but database was done at the very beginning, and now it would mess up with imports."""
     CUSTOMER = "1"
     STAFF = "2"
     ADMIN = "3"
@@ -12,18 +14,18 @@ class Profile(models.Model):
         (STAFF, "Staff"),
         (ADMIN, "Administrator"),
     ]
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # this expands default User model used by Django auth
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=9)
-    image = models.ImageField(upload_to='profile_images')
+    image = models.ImageField(upload_to='profile_images', blank=True)
     role = models.CharField(max_length=1, choices=ROLE_CHOICES, default=1)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-    # resizing images
     def save(self, *args, **kwargs):
+        """Function to change user's avatar to max 100 x 100"""
         super().save()
 
         img = Image.open(self.image.path)
@@ -61,5 +63,5 @@ class Reservation(models.Model):
     is_confirmed = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Rezerwacja na stolik nr {self.table.id} na {self.date}"
+        return f"Rezerwacja na stolik nr {self.table.id} na {self.date} od {self.customer.first_name} {self.customer.last_name}"
 
