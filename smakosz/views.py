@@ -55,7 +55,7 @@ class HomeView(ListView):
             user = User.objects.get(username=username)
             user_id = user.id
             profile_response = requests.get(
-                f"http://127.0.0.1:8000/api/prof/{user_id}/")  # should declare DOMAIN var in .env to be proper but eh
+                f"http://127.0.0.1:8000/api/prof/{user_id}/")
             data = json.loads(profile_response.text)
             profile_id = data["id"]
             profile = Profile.objects.get(pk=profile_id)
