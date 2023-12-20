@@ -18,7 +18,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=9)
-    image = models.ImageField(upload_to='profile_images', blank=True)
+    image = models.ImageField(upload_to='profile_images', blank=True, null=True)
     role = models.CharField(max_length=1, choices=ROLE_CHOICES, default=1)
 
     def __str__(self):
