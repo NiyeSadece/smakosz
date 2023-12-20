@@ -2,6 +2,7 @@ from django import forms
 from .models import Reservation
 
 
+# Katarzyna Trzeciak
 class ReservationForm(forms.ModelForm):
     how_many = forms.IntegerField(min_value=1, max_value=10)
 

@@ -1,12 +1,14 @@
+<!-- Maciej Franc -->
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
+    <div class="form">
+  <h2>Sign up</h2><br><br><br>
+  <form id="reservationForm" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign Up</button>
-  </form>
+  </form></div>
 {% endblock %}

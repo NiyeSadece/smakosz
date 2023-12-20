@@ -1,3 +1,4 @@
+/* Maciej Franc */
 *{
     margin: 0 ;
     padding: 0;
@@ -194,7 +195,7 @@ h4 {
     margin-bottom: 10px;
   }
 
-  input[type="text"][type="password"] {
+  input[type="text"][type="password"][type="select"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;

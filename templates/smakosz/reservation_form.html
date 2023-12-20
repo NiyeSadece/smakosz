@@ -1,14 +1,16 @@
+<!-- Dalia Grodzka -->
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Zarezerwuj stolik{% endblock %}
 
 {% block content %}
+    <div class="form">
   <h1>Złóż rezerwację</h1>
   <p>Podaj dane rezerwacji</p>
 
-  <form method="POST">
+  <form id="reservationForm" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Zarezerwuj!">
-  </form>
+  </form></div>
 {% endblock %}

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from smakosz.models import Profile, Reservation, Table
 
 
+# Dalia Grodzka
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

@@ -11,6 +11,7 @@ from .forms import ReservationForm
 from .models import Profile, Table, Reservation
 
 
+# Katarzyna Trzeciak
 @login_required()
 def reservation_confirmed(request):
     return render(request, 'smakosz/reservation_confirmed.html')
@@ -23,6 +24,7 @@ class ReservationView(LoginRequiredMixin, FormView):
     form_class = ReservationForm
     success_url = "/smakosz/reservation_confirmed/"
 
+    # Dalia Grodzka
     def form_valid(self, form):
         """This part is unnecessarily extra, but I've written we're using Django REST Framework, so we're using it ¯\_(ツ)_/¯"""
         try:

@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from smakosz.models import Profile
 
 
+# Dalia Grodzka
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

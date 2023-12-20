@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from.forms import RegisterForm, UpdateUserForm, UpdateProfileForm
 
 
+# Maciej Franc
 @login_required
 def profile(request):
     if request.method == 'POST':

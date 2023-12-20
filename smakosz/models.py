@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 
+# Katarzyna Trzeciak
 class Profile(models.Model):
     """Technically, Profile model should be in accounts to maintain proper separation,
     but database was done at the very beginning, and now it would mess up with imports."""
@@ -21,6 +22,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile_images', blank=True, null=True)
     role = models.CharField(max_length=1, choices=ROLE_CHOICES, default=1)
 
+    # Dalia Grodzka
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -36,6 +38,7 @@ class Profile(models.Model):
             img.save(self.image.path)
 
 
+# Katarzyna Trzeciak
 class Restaurant(models.Model):
     address = models.CharField(max_length=255)
 
