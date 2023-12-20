@@ -3,14 +3,18 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    <img src="{% static '/images/Menu.jpg' %}" alt="Menu" class="menu-image">
+
+    <div class="description">
 {% if user.is_authenticated %}
   Hi <a href="{% url 'users-profile' %}">{{ user.username }}!</a>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-    <p><a href="{% url 'reservation' %}">Nowa rezerwacja</a></p>
-    <h2>Twoje rezerwacje</h2>
+  <p><a href="{% url 'logout' %}">Log Out</a></p><br><br>
+    <p><a class='reservation-link' href="{% url 'reservation' %}">Nowa rezerwacja</a></p>
+    <h4>Twoje rezerwacje</h4>
+    <br><br><br><br>
     {% if object_list %}
         {% for resv in reservation_list %}
-            <p>{{ resv }}</p>
+            <p>{{ resv }}</p><br>
         {% endfor %}
         {% else %}
         <p>Nie masz jeszcze żadnych rezerwacji.</p>
@@ -20,3 +24,4 @@
   <a href="{% url 'login' %}">Log In</a>  <a href="{% url 'signup' %}">Sign up</a>
 {% endif %}
 {% endblock %}
+</div>
