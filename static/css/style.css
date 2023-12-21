@@ -193,6 +193,7 @@ h4 {
 
   label {
     margin-bottom: 10px;
+      color: black;
   }
 
   input[type="text"][type="password"][type="select"] {
